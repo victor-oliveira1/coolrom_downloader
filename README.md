@@ -1,15 +1,15 @@
 # coolrom_downloader
 
-######  ▄▄·             ▄▄▌  ▄▄▄        • ▌ ▄ ·.
-###### ▐█ ▌▪▪     ▪     ██•  ▀▄ █·▪     ·██ ▐███▪
-###### ██ ▄▄ ▄█▀▄  ▄█▀▄ ██▪  ▐▀▀▄  ▄█▀▄ ▐█ ▌▐▌▐█·
-###### ▐███▌▐█▌.▐▌▐█▌.▐▌▐█▌▐▌▐█•█▌▐█▌.▐▌██ ██▌▐█▌
-###### ·▀▀▀  ▀█▄▀▪ ▀█▄▀▪.▀▀▀ .▀  ▀ ▀█▄▀▪▀▀  █▪▀▀▀
-###### ·▄▄▄▄        ▄▄▌ ▐ ▄▌ ▐ ▄ ▄▄▌         ▄▄▄· ·▄▄▄▄  ▄▄▄ .▄▄▄
-###### ██▪ ██ ▪     ██· █▌▐█•█▌▐███•  ▪     ▐█ ▀█ ██▪ ██ ▀▄.▀·▀▄ █·
-###### ▐█· ▐█▌ ▄█▀▄ ██▪▐█▐▐▌▐█▐▐▌██▪   ▄█▀▄ ▄█▀▀█ ▐█· ▐█▌▐▀▀▪▄▐▀▀▄
-###### ██. ██ ▐█▌.▐▌▐█▌██▐█▌██▐█▌▐█▌▐▌▐█▌.▐▌▐█ ▪▐▌██. ██ ▐█▄▄▌▐█•█▌
-###### ▀▀▀▀▀•  ▀█▄▀▪ ▀▀▀▀ ▀▪▀▀ █▪.▀▀▀  ▀█▄▀▪ ▀  ▀ ▀▀▀▀▀•  ▀▀▀ .▀  ▀
+  ▄▄·             ▄▄▌  ▄▄▄        • ▌ ▄ ·.
+ ▐█ ▌▪▪     ▪     ██•  ▀▄ █·▪     ·██ ▐███▪
+ ██ ▄▄ ▄█▀▄  ▄█▀▄ ██▪  ▐▀▀▄  ▄█▀▄ ▐█ ▌▐▌▐█·
+ ▐███▌▐█▌.▐▌▐█▌.▐▌▐█▌▐▌▐█•█▌▐█▌.▐▌██ ██▌▐█▌
+ ·▀▀▀  ▀█▄▀▪ ▀█▄▀▪.▀▀▀ .▀  ▀ ▀█▄▀▪▀▀  █▪▀▀▀
+ ·▄▄▄▄        ▄▄▌ ▐ ▄▌ ▐ ▄ ▄▄▌         ▄▄▄· ·▄▄▄▄  ▄▄▄ .▄▄▄
+ ██▪ ██ ▪     ██· █▌▐█•█▌▐███•  ▪     ▐█ ▀█ ██▪ ██ ▀▄.▀·▀▄ █·
+ ▐█· ▐█▌ ▄█▀▄ ██▪▐█▐▐▌▐█▐▐▌██▪   ▄█▀▄ ▄█▀▀█ ▐█· ▐█▌▐▀▀▪▄▐▀▀▄
+ ██. ██ ▐█▌.▐▌▐█▌██▐█▌██▐█▌▐█▌▐▌▐█▌.▐▌▐█ ▪▐▌██. ██ ▐█▄▄▌▐█•█▌
+ ▀▀▀▀▀•  ▀█▄▀▪ ▀▀▀▀ ▀▪▀▀ █▪.▀▀▀  ▀█▄▀▪ ▀  ▀ ▀▀▀▀▀•  ▀▀▀ .▀  ▀
 
 Email: victor.oliveira@gmx.com
 
@@ -17,7 +17,7 @@ Baixe roms diretamente do terminal!
 
 **Coolrom_downloader** é um bash script que realiza download de roms do site: **"http://coolrom.com"** diretamente do terminal, sem necessidade de nenhum navegador.
 
-######Utilização:
+##Utilização:
 **1**- Dê permissões de execução ao script com o comando:
 >	*chmod +x ./coolrom_downloader*
 
@@ -32,4 +32,5 @@ Baixe roms diretamente do terminal!
 
 **6**- O download será iniciado!
 
-**NOTA:** Para funcionar será necessário possuir o programa **'lynx'** instalado. Basta utilizar o gerenciador de pacotes da sua distribuição para instalá-lo.
+##NOTA:
+Para funcionar será necessário possuir o programa **'lynx'** instalado. Basta utilizar o gerenciador de pacotes da sua distribuição para instalá-lo.
