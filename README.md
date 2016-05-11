@@ -49,3 +49,7 @@ Baixe roms diretamente do terminal!
 
 ##NOTA:
 Para funcionar será necessário possuir o programa **'lynx'** instalado. Basta utilizar o gerenciador de pacotes da sua distribuição para instalá-lo.
+
+Este script está em constante atualização. Funcionalidades podem ser adicionadas a qualquer momento ou removidas sem aviso.
+
+Idéias ou sugestões podem ser enviadas para o email: victor.oliveira@gmx.com.
