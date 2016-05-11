@@ -2,8 +2,6 @@
 
 ![Coolrom_downloader](http://s32.postimg.org/oa8adu42t/Captura_de_tela_de_2016_05_11_02_10_26.png)
 
-Email: victor.oliveira@gmx.com
-
 Baixe roms diretamente do terminal!
 
 **Coolrom_downloader** é um bash script que realiza download de roms do site: **"http://coolrom.com"** diretamente do terminal, sem necessidade de nenhum navegador.
