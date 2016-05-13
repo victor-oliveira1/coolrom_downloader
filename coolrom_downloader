@@ -90,6 +90,7 @@ BAIXA_ROM()
 		}
 	
 	# Mostra algumas informações
+	clear
 	echo ""
 	echo "Link para download:"
 	echo $(ROM)
