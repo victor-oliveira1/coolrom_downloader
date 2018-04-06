@@ -4,6 +4,13 @@
 #terms of the Do What The Fuck You Want To Public License, Version 2,
 #as published by Sam Hocevar. See the COPYING file for more details.
 
+#Changelog:
+#v2.0 - Rewritten from scratch in Python3
+# * The parsing system uses proper Python3 module
+# * It load supported consoles directly from the page
+# * Uses only Python3 STDLIB (No need to install other modules)
+#v1.0 - Written in BASH
+
 import urllib.request
 import urllib.parse
 from html.parser import HTMLParser
@@ -116,27 +123,42 @@ def _downloadRom(rom_link):
             os.remove(file_name)
             print('Download cancelled.\nLeftover file deleted.')
 
-print('Coolrom Downloader\n')
-print('== Select console ==')
+print('''
+ ▄▄·             ▄▄▌  ▄▄▄        • ▌ ▄ ·.                                   
+▐█ ▌▪▪     ▪     ██•  ▀▄ █·▪     ·██ ▐███▪                                  
+██ ▄▄ ▄█▀▄  ▄█▀▄ ██▪  ▐▀▀▄  ▄█▀▄ ▐█ ▌▐▌▐█·                                  
+▐███▌▐█▌.▐▌▐█▌.▐▌▐█▌▐▌▐█•█▌▐█▌.▐▌██ ██▌▐█▌                                  
+·▀▀▀  ▀█▄▀▪ ▀█▄▀▪.▀▀▀ .▀  ▀ ▀█▄▀▪▀▀  █▪▀▀▀                                  
+                ·▄▄▄▄        ▄▄▌ ▐ ▄▌ ▐ ▄ ▄▄▌         ▄▄▄· ·▄▄▄▄  ▄▄▄ .▄▄▄  
+                ██▪ ██ ▪     ██· █▌▐█•█▌▐███•  ▪     ▐█ ▀█ ██▪ ██ ▀▄.▀·▀▄ █·
+                ▐█· ▐█▌ ▄█▀▄ ██▪▐█▐▐▌▐█▐▐▌██▪   ▄█▀▄ ▄█▀▀█ ▐█· ▐█▌▐▀▀▪▄▐▀▀▄ 
+                ██. ██ ▐█▌.▐▌▐█▌██▐█▌██▐█▌▐█▌▐▌▐█▌.▐▌▐█ ▪▐▌██. ██ ▐█▄▄▌▐█•█▌
+                ▀▀▀▀▀•  ▀█▄▀▪ ▀▀▀▀ ▀▪▀▀ █▪.▀▀▀  ▀█▄▀▪ ▀  ▀ ▀▀▀▀▀•  ▀▀▀ .▀  ▀
+                v2.0
+Coded by: victor.oliveira@gmx.com''')
+print('\n== CONSOLE SELECT ==')
 consoles = _getConsoles()
 for console in consoles:
-    print(consoles.index(console), console)
+    print('{}) {}'.format(consoles.index(console), console))
+print('\nInput console number:')
 console_selected = input('> ')
 console_selected = int(console_selected)
 
-print('== Input rom letter ==')
+print('\n== ROM SEARCH ==')
+print('\nInput rom letter number:')
 rom_letter = input('> ')
 roms_list = _getRomslist(consoles[console_selected], rom_letter)
 roms_names = list()
 for rom_name in roms_list:
     roms_names.append(rom_name)
 
-print('== Select rom ==')
+print('\n== ROM SELECT ==')
 for rom_name in roms_names:
-    print(roms_names.index(rom_name), rom_name)
+    print('{}) {}'.format(roms_names.index(rom_name), rom_name))
+print('\nInput rom number:')
 rom_selected = input('> ')
 rom_selected = int(rom_selected)
 
-print('== Downloading rom ==')
+print('\n== ROM DOWNLOAD ==')
 rom_selected_name = roms_names[rom_selected]
 _downloadRom(roms_list[rom_selected_name])
