@@ -145,7 +145,7 @@ console_selected = input('> ')
 console_selected = int(console_selected)
 
 print('\n== ROM SEARCH ==')
-print('\nInput rom letter number:')
+print('\nInput rom letter:')
 rom_letter = input('> ')
 roms_list = _getRomslist(consoles[console_selected], rom_letter)
 roms_names = list()
