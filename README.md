@@ -1,4 +1,4 @@
-# coolrom_downloader v2.0
+# coolrom_downloader v2.1
 
 Download roms directly from terminal!  
 **Coolrom_downloader** it's a Python3 script that download roms from website coolrom.com.  
