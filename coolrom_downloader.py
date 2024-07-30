@@ -5,13 +5,14 @@
 #as published by Sam Hocevar. See the COPYING file for more details.
 
 #Changelog:
+#v2.1 - Fixed HTTP error 401
 #v2.0 - Rewritten from scratch in Python3
 # * The parsing system uses proper Python3 module
 # * It load supported consoles directly from the page
 # * Uses only Python3 STDLIB (No need to install other modules)
 #v1.0 - Written in BASH
 
-import urllib.request
+import urllib.request as ur
 import urllib.parse
 from html.parser import HTMLParser
 import os
@@ -36,12 +37,14 @@ class MyHTMLParser(HTMLParser):
             self.data.append(data)
 
 def _getHtml(url):
-    req = urllib.request.urlopen(url)
+    req = ur.Request(url)
+    req.add_header('User-Agent', 'Bla')
+    req = ur.urlopen(req)
     html = req.read().decode()
     return html
 
 def _getConsoles():
-    url = 'http://coolrom.com/roms/'
+    url = 'http://coolrom.com.au/roms/'
     html_page = _getHtml(url)
     html_parser = MyHTMLParser()
     html_parser.feed(html_page)
@@ -52,12 +55,12 @@ def _getConsoles():
                 if len(line) == 1:
                     console_name = line[0][1].split('/')[2]
                     consoles.append(console_name)
-        except IndexError:
+        except:
             pass
     return consoles
 
 def _getRomslist(console, letter):
-    url = 'http://coolrom.com/roms/{}/{}/'.format(console, letter)
+    url = 'http://coolrom.com.au/roms/{}/{}/'.format(console, letter)
     html_page = _getHtml(url)
     html_parser = MyHTMLParser()
     html_parser.feed(html_page)
@@ -73,7 +76,7 @@ def _getRomslist(console, letter):
                         rom_name = rom_name.split('.php')[0]
                         rom_name = rom_name.replace('_', ' ')
                         roms.update({rom_name : rom_link})
-        except IndexError:
+        except:
             pass
     return roms
                         
@@ -83,11 +86,11 @@ def _downloadRom(rom_link):
     rom_name = rom_name.split('.php')[0]
     rom_name = rom_name.replace('_', ' ')
     console_name = rom_link.split('/')[2]
-    url = 'http://coolrom.com/dlpop.php?id={}'.format(rom_id)
+    url = 'http://coolrom.com.au/dlpop.php?id={}'.format(rom_id)
     html_page = _getHtml(url)
     html_parser = MyHTMLParser()
     html_parser.feed(html_page)
-    html_parser.feed(html_parser.data[1])
+    html_parser.feed(''.join(html_parser.data))
     for line in html_parser.attrib:
         try:
             if 'action' in line[1][0]:
@@ -95,9 +98,10 @@ def _downloadRom(rom_link):
                 break
         except IndexError:
             pass
-    req_header = {'Referer' : 'http://coolrom.com/{}'.format(rom_link)}
-    req = urllib.request.Request(url_download, headers=req_header)
-    req = urllib.request.urlopen(req)
+    req_header = {'Referer' : 'http://coolrom.com.au/{}'.format(rom_link),
+                  'User-Agent': 'Bla'}
+    req = ur.Request(url_download, headers=req_header)
+    req = ur.urlopen(req)
     file_size = req.getheader('Content-Length')
     file_size = int(file_size)
     file_name = req.getheader('Content-Disposition')
